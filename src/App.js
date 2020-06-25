@@ -1,57 +1,62 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './App.css';
 import Table from './table';
 
-class App extends Component {
+import Form from './Form';
 
+class App extends Component {
   state = {
     authors: [
       {
-        nome: 'Paulo',
-        livro: 'React',
-        preco: '1000'
+        name: 'Paulo',
+        book: 'React',
+        price: '1000',
       },
       {
-        nome: 'Daniel',
-        livro: 'Java',
-        preco: '99'
+        name: 'Daniel',
+        book: 'Java',
+        price: '99',
       },
       {
-        nome: 'Marcos',
-        livro: 'Design',
-        preco: '150'
+        name: 'Marcos',
+        book: 'Design',
+        price: '150',
       },
       {
-        nome: 'Ana',
-        livro: 'Front-end',
-        preco: '180'
+        name: 'Ana',
+        book: 'Front-end',
+        price: '180',
       },
       {
-        nome: 'Bruno',
-        livro: 'DevOps',
-        preco: '100'
-      }
-    ]
+        name: 'Bruno',
+        book: 'DevOps',
+        price: '100',
+      },
+    ],
   };
 
   removeAuthor = (index) => {
-
     const { authors } = this.state;
 
     this.setState({
       authors: authors.filter((author, currentIndex) => {
         return currentIndex !== index;
-      })
+      }),
     });
-  }
+  };
+
+  addAuthor = (author) => {
+    console.log('teste:' + author.name);
+    this.setState({ authors: [...this.state.authors, author] });
+  };
 
   render() {
     return (
-      <div className="App">
-        <Table authors={this.state.authors} removeAuthor={this.removeAuthor}/>
-      </div>
+      <Fragment>
+        <Table authors={this.state.authors} removeAuthor={this.removeAuthor} />
+        <Form addAuthor={this.addAuthor} />
+      </Fragment>
     );
-
   }
 }
 

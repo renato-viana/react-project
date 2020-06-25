@@ -17,9 +17,9 @@ const TableBody = (props) => {
   const rows = props.authors.map((author, index) => {
     return (
       <tr key={index}>
-        <td>{author.nome}</td>
-        <td>{author.livro}</td>
-        <td>{author.preco}</td>
+        <td>{author.name}</td>
+        <td>{author.book}</td>
+        <td>{author.price}</td>
         <td>
           <button onClick={ () => { props.removeAuthor(index) } }>Remover</button>
         </td>
