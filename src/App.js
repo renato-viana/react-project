@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
-import './App.css';
-import Table from './table';
+import 'materialize-css/dist/css/materialize.min.css';
 
+import Header from './Header';
+import Table from './table';
 import Form from './Form';
 
 class App extends Component {
@@ -53,8 +54,14 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <Table authors={this.state.authors} removeAuthor={this.removeAuthor} />
-        <Form addAuthor={this.addAuthor} />
+        <Header />
+        <div className="container">
+          <Table
+            authors={this.state.authors}
+            removeAuthor={this.removeAuthor}
+          />
+          <Form addAuthor={this.addAuthor} />
+        </div>
       </Fragment>
     );
   }

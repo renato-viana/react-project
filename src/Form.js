@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './App.css'
 
 export default class Form extends Component {
   constructor(props) {
@@ -31,36 +32,55 @@ export default class Form extends Component {
     console.log(name, book, price);
     return (
       <form>
-        <label htmlFor="nome">Nome</label>
-        <input
-          id="nome"
-          type="text"
-          name="name"
-          value={name}
-          onChange={this.handleInputValue}
-        />
+        <div className="row">
+          <div className="input-field col s4">
+            <label className="input-field" htmlFor="nome">
+              Nome
+            </label>
+            <input
+              className="validate"
+              id="nome"
+              type="text"
+              name="name"
+              value={name}
+              onChange={this.handleInputValue}
+            />
+          </div>
+          <div className="input-field col s4">
+            <label className="input-field" htmlFor="livro">
+              Livro
+            </label>
+            <input
+              className="validate"
+              id="livro"
+              type="text"
+              name="book"
+              value={book}
+              onChange={this.handleInputValue}
+            />
+          </div>
+          <div className="input-field col s4">
+            <label className="input-field" htmlFor="preco">
+              Preço
+            </label>
+            <input
+              className="validate"
+              id="preco"
+              type="text"
+              name="price"
+              value={price}
+              onChange={this.handleInputValue}
+            />
+          </div>
 
-        <label htmlFor="livro">Livro</label>
-        <input
-          id="livro"
-          type="text"
-          name="book"
-          value={book}
-          onChange={this.handleInputValue}
-        />
-
-        <label htmlFor="preco">Preço</label>
-        <input
-          id="preco"
-          type="text"
-          name="price"
-          value={price}
-          onChange={this.handleInputValue}
-        />
-
-        <button onClick={this.handleSubmitForm} type="button">
-          Salvar
-        </button>
+          <button
+            onClick={this.handleSubmitForm}
+            type="button"
+            className="waves-effect waves-light blue lighten-2 btn mb-10"
+          >
+            Salvar
+          </button>
+        </div>
       </form>
     );
   }
